@@ -1,0 +1,126 @@
+body {
+  font-size: 19px;
+  font-weight: bold;
+}
+@mixin backPos ($z){
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: $z;
+}
+.backgroundImg {
+  background-image: url("./img/bacground.jpg");
+  position: fixed;
+  @include backPos(-2)
+}
+
+.tinting {
+  background-color: rgba(0, 0, 0, 0.4);
+  position: fixed;
+  @include backPos(-1)
+}
+
+.wrapper {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  margin-top: 20px;
+  input:checked + div::before {
+    content: "✔";
+    position: relative;
+    bottom: 25px;
+    right: 5px;
+    font-size: 35px;
+  }
+  button {
+    background-color: #f5f58a;
+    border-radius: 5px;
+    border: none;
+    font-weight: bold;
+    cursor: pointer;
+  }
+  .head {
+    width: 900px;
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+    right: 76px;
+    label {
+      display: flex;
+      align-items: center;
+      color: white;
+      user-select: none;
+      cursor: pointer;
+      > :last-child {
+        margin-left: 10px;
+      }
+      input {
+        display: none;
+      }
+    }
+    button {
+      padding: 0 10px;
+      &:hover {
+        background-color: #fcfcbd;
+      }
+    }
+    input {
+      font-weight: bold;
+      border-radius: 5px;
+      padding: 5px;
+      font-size: 16px;
+      border: 3px solid black;
+      outline: none;
+      width: 350px;
+      &:focus {
+        border: 3px solid #f5f58a;
+      }
+      &::placeholder {
+        text-align: center;
+      }
+    }
+  }
+  ul {
+    list-style-type: none;
+    padding: 0;
+    li {
+      width: 300px;
+      margin-bottom: 20px;
+      color: white;
+      &.done {
+        text-decoration: line-through;
+      }
+      .itemContainer {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        input {
+          display: none;
+        }
+        > :first-child {
+          display: flex;
+          .task {
+            margin-left: 10px;
+            width: 250px;
+          }
+        }
+      }
+      button {
+        padding: 5px 10px;
+        &:hover {
+          background-color: red;
+        }
+      }
+    }
+  }
+}
+
+.fakeCheckbox {
+  width: 15px;
+  height: 15px;
+  border: 3px solid #f5f58a;
+  border-radius: 9999px;
+  cursor: pointer;
+}
+
