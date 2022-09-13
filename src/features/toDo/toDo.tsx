@@ -1,4 +1,4 @@
-import React, {useCallback, useRef, useState} from 'react';
+import React, {useCallback, useRef} from 'react';
 
 import { useAppSelector, useAppDispatch } from '../../app/hooks';
 import { add, remove, done, filterDone, filterActual, selectList, selectFilter } from './toDoSlice';
@@ -8,7 +8,6 @@ export function ToDo() {
 
   const list = useAppSelector(selectList);
   const activeFilters = useAppSelector(selectFilter);
-  console.log(activeFilters, list)
   const dispatch = useAppDispatch()
   const taskInp = useRef<HTMLInputElement>(null)
   const checkTaskInp = useCallback((cb:any) => {
@@ -100,7 +99,6 @@ export function ToDo() {
                           if (e.code === "Enter") addItem()
                       }}
                   />
-                  {/*<button onClick={addItem}>Save</button>*/}
                   <button
                       onClick={() => addItem()}
                   >Добавить</button>
